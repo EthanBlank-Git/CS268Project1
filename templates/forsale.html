@@ -10,12 +10,14 @@
                 <div class="box">
                     <img src="data:image/jpg;base64,{{ row[7].decode('ascii') }}" alt="for sale #{{row[0]}} hedgehog">
                     <span>{{row[1]}} - {{row[2]}}</span>
-                </div>
+                </div><br>
+                <div style="padding=5px">
                 <p>Date of Birth: {{row[3]}}</p>
                 <p>Color: {{row[4]}}</p>
                 <p>Gender: {{row[5]}}</p>
                 <p>Ready: {{row[6]}}</p>
                 <p>Requests: {{row[8]}}</p>
+                </div>
             </div>
         {% endfor %}
         <style>

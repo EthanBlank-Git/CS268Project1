@@ -1,6 +1,7 @@
 import base64
+import hashlib
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from datetime import date
 import sqlite3 as sql
 import os
@@ -16,6 +17,15 @@ c = con.cursor()
 @app.route('/')
 def home():
     return render_template("index.html")
+@app.route('/report')
+def report():
+    return render_template("report.html")
+@app.route('/loginPage')
+def loginPage():
+    return render_template("login.html")
+@app.route('/register')
+def register():
+    return render_template("register.html")
 @app.route('/MyHedgehogs')
 def myHedgehogs():
     return render_template("myhedgehogs.html")
@@ -80,6 +90,49 @@ def submitReview():
     rows=c.fetchall()
 
     return render_template('reviews.html', rows=rows)
+
+@app.route('/submitRegistration', methods=['POST'])
+def submitRegistration():
+    password = request.form.get('password')
+    email = request.form.get('email')
+    con = sql.connect("database.db")
+    c = con.cursor()
+
+    c.execute("""INSERT INTO Login (email, password) VALUES (?, ?)""", (email, password))
+    con.commit()
+
+    return render_template('login.html')
+
+@app.route('/submitlogin', methods=['GET', 'POST'])
+def submitLogin():
+    error = None
+    if request.method == 'POST':
+        password = request.form.get('password')
+        email = request.form.get('email')
+        validation = validate(email, password)
+        if validation == False:
+            error = 'Invalid Credentials. Please try again.'
+            print("Error")
+        else:
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
+
+def validate(email, password):
+    con = sql.connect("database.db")
+    validation = False
+    with con:
+                cur = con.cursor()
+                cur.execute("SELECT * FROM Login")
+                rows = cur.fetchall()
+                for row in rows:
+                    dbEmail = row[1]
+                    dbPass = row[2]
+                    if dbEmail==email:
+                        if dbPass==password:
+                            validation = True
+    return validation
+
+
 @app.route('/submitFact', methods=['POST'])
 def submitFact():
     fact = request.form.get('fact')
@@ -226,6 +279,8 @@ def popDatabase():
         stmt = "CREATE TABLE If NOT EXISTS FunFacts (id INTEGER PRIMARY KEY, name TEXT NOT NULL, fact TEXT NOT NULL, date TEXT NOT NULL);"
         c.execute(stmt)
         stmt = "CREATE TABLE If NOT EXISTS Inquiries (id INTEGER PRIMARY KEY, email TEXT NOT NULL, hoglet TEXT NOT NULL, date TEXT NOT NULL);"
+        c.execute(stmt)
+        stmt = "CREATE TABLE IF NOT EXISTS Login (id INTEGER PRIMARY KEY, email TEXT NOT NULL, password TEXT NOT NULL);"
         c.execute(stmt)
         con.commit()
     except Exception as e:

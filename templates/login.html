@@ -1,0 +1,61 @@
+{% extends "Common.html" %}
+{% block title %}Login{% endblock %}
+{% block html_head %}
+{% endblock %}
+{% block content %}
+    <div style="height: 115%;">
+        <div class="reviews" style="width: 100%">
+            {% for row in rows %}
+                <p class="Email">{{row[1]}}</p>
+                <p class="Password">'{{row[2]}}' - {{row[3]}}</p>
+                <br>
+            {% endfor %}
+        </div>
+        <style>
+            .main form {
+                width: 400px;
+                background-color: #72911C;
+                box-shadow: 0 20px 30px rgba(0, 0, 0, .2);
+                padding: 1%;
+                border-radius: 10px;
+                text-align: center;
+                margin: auto;
+            }
+            .main form input {
+                text-align: center;
+                width: 92%;
+                background-color: #E0DFD4;
+                padding: 1%;
+                margin: 10px;
+            }
+            .main form h3 {
+                text-align: center;
+                width: 92%;
+                font-family: 'Dancing Script', cursive;
+                font-size: 40px;
+                text-shadow: 2px 2px 2px #333;
+                color: #E0DFD4;
+                background-color: #536915;
+                border-radius: 10px;
+                padding: 1%;
+                margin: 10px;
+                margin-left: 14px;
+            }
+
+    </style>
+        <form action="{{ url_for('submitLogin') }}" method="post" name="login">
+            <h3>Login Form</h3>
+            <input name="email" type="email" id="email" size="140" placeholder="Email">
+            <input name="password" type="password" id="password" size="140" placeholder="Password">
+            <input type="submit" class="btn btn-success" value="Submit" name="login"/>
+            <div id="register-link" class="text-right">
+                <a class="navItem" href="{{url_for('register')}}">Register Here</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+     <div class="overlay" id="headerOverlay" style="height: 75px;">
+         <h1 id="headerTitle" style="font-size: 57px;">Login</h1>
+     </div>
+{% endblock %}
