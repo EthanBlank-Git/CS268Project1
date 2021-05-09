@@ -1,19 +1,16 @@
 {% extends "Common.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <div style="text-align: center;">
+    <div style="text-align: center; height: 130%">
         <h1 style="font-family: 'Dancing Script', cursive; color: #72911C; text-shadow: 2px 2px 2px white;">Thank you for taking the time to look at my website!</h1>
         <h2 style="font-family: 'Dancing Script', cursive; color: #72911C; text-shadow: 2px 2px 2px white;">I hope you like it!</h2>
-        <div class="homeImgs" style="display: grid;">
-            <div>
-                <img style="width: 350px; height: 350px; object-fit: cover; margin: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/one.jpg')}}" alt="Andi image">
-            </div>
-            <div>
-                <img style="width: 350px; height: 350px; object-fit: cover; margin: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/homepagepicture1.jpg')}}" alt="Andi image">
-            </div>
-            <div>
-                <img style="width: 350px; height: 350px; object-fit: cover; margin: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/two.jpg')}}" alt="Andi image">
-            </div>
+        <div class="homeImgs" style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+            <img style="width: 300px; height: 300px; object-fit: cover; margin: auto; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/one.jpg')}}" alt="Andi image">
+            <img style="width: 300px; height: 300px; object-fit: cover; margin: auto; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/two.jpg')}}" alt="Andi image">
+            <img style="width: 300px; height: 300px; object-fit: cover; margin: auto; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/homepagepicture1.jpg')}}" alt="Andi image">
+            <img style="width: 300px; height: 300px; object-fit: cover; margin: auto; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/three.jpg')}}" alt="Andi image">
+            <img style="width: 300px; height: 300px; object-fit: cover; margin: auto; margin-bottom: 10px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);" src="{{url_for('static', filename = 'images/Home/four.jpg')}}" alt="Andi image">
+
         </div>
         <div style="margin: 10px;">
             <h4>

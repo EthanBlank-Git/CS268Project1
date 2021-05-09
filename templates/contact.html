@@ -2,19 +2,9 @@
 {% block title %}Contact{% endblock %}
 {% block html_head %}
     <link rel = "stylesheet" type="text/css" href="{{url_for('static', filename = 'css/contact.css')}}">
-    <script>
-            var submitButton = document.getElementById("submit_form");
-            var form = document.getElementById("email_form");
-            form.addEventListener("submit", function (e) {
-                setTimeout(function() {
-                    submitButton.value = "Sending...";
-                    submitButton.disabled = true;
-                }, 1);
-            });
-    </script>
 {% endblock %}
 {% block content %}
-    <div style="height: 100%;">
+    <div style="height: 200%;">
         <form action="https://postmail.invotes.com/send"
               method="post" id="email_form">
             <h3>Email Us!</h3>
@@ -76,6 +66,18 @@
     </div>
 {% endblock %}
 {% block navOverlay %}
+    <script>
+        var submitButton = document.getElementById("submit_form");
+        var form = document.getElementById("email_form");
+        form.addEventListener("submit", function (e) {
+            setTimeout(function() {
+                submitButton.value = "Sending...";
+                submitButton.disabled = true;
+            }, 1);
+        });
+        var myobj = document.getElementById("pagefooter");
+        myobj.remove();
+    </script>
     <div class="overlay" id="headerOverlay" style="height: 75px;">
         <h1 id="headerTitle" style="font-size: 57px;">Contact</h1>
     </div>

@@ -1,14 +1,9 @@
 {% extends "Common.html" %}
 {% block title %}My Hedgehogs{% endblock %}
 {% block html_head %}
-<style>
-    .footer {
-        visibility: hidden;
-    }
-</style>
 {% endblock %}
 {% block content %}
-    <div>
+    <div style="height: 100%;">
         <h4 style="text-align: center;">Here are some of my hedgehogs!</h4>
         <div class="container" style="height: 50vh; width: 70%; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr ; margin: auto; margin-bottom: 0; text-align: center;">
             <div class="box">
@@ -39,6 +34,8 @@
             <p style="text-align: center;">Color: High Pinto<br> DOB: 5/11/2020<br> Gender: Female</p>
             <p style="text-align: center;">Color: Salt and Pepper<br> DOB: 07/18/2020<br> Gender: Male</p>
             <p style="text-align: center;">Color: Salt and Pepper<br> DOB: 09/08/2020<br> Gender: Female</p>
+            <br>
+            <br>
         </div>
     </div>
 {% endblock %}

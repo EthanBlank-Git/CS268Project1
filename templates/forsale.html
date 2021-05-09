@@ -3,10 +3,10 @@
 {% block html_head %}
 {% endblock %}
 {% block content %}
-    <div>
+    <div style="height: 150%; width: 100%;">
         <h4 style="width: 100%; text-align: center;">Here are some hedgehogs that are for sale!</h4>
         {% for row in rows %}
-            <div class="container" style="height: 55vh; width: 55vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
+            <div class="container" style="height: 55vh; width: 50vh; grid-template-columns: 1fr; grid-template-rows: 1fr; margin: auto; text-align: center;">
                 <div class="box">
                     <img src="data:image/jpg;base64,{{ row[7].decode('ascii') }}" alt="for sale #{{row[0]}} hedgehog">
                     <span>{{row[1]}} - {{row[2]}}</span>
