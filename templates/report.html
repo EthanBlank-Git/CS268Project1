@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel = "stylesheet" type="text/css" href="{{url_for('static', filename = 'css/styles.css')}}">
-        <link rel="shortcut icon" type="image/x-icon" href="https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png">
-        <script src="{{url_for('static', filename = 'js/main.js')}}"></script>
-        <title>Andi’s Critters - Report</title>
-    </head>
-    <body>
-        <!-- Nav Bar -->
-        <div id="mainNavBar" class="navBar" style="width: 0px;">
-            <!-- Nav Title -->
-            <div class="navBar-title" id="navTitle" style="visibility: hidden; margin-left: -200px;">
-                <h3 style="width: 100%;">Andi's Critters</h3>
-                <img src="https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F994-hedgehog-512.png" style="width: 100px;" alt="nav icon hedgehog">
-            </div>
-            <!-- Nav Content -->
-            <div id="navContent" style="visibility: hidden; margin-top: 150px;">
-                <a class="navItem" href="{{url_for('home')}}" style="overflow: visible;">Home</a>
-                <a class="navItem" href="{{url_for('myHedgehogs')}}">My Hedgehogs</a>
-                <a class="navItem" href="{{url_for('meGrowing')}}">Watch Me Growing</a>
-                <a class="navItem" href="{{url_for('forSale')}}">For Sale</a>
-                <a class="navItem" href="{{url_for('sold')}}">Sold</a>
-                <a class="navItem" href="{{url_for('care')}}">Hedgehog Care</a>
-                <a class="navItem" href="{{url_for('questionsAndAnswers')}}">Q&A</a>
-                <a class="navItem" href="{{url_for('funFacts')}}">Fun Facts!</a>
-                <a class="navItem" href="{{url_for('contact')}}">Contact Us</a>
-                <a class="navItem" href="{{url_for('reviews')}}">Reviews</a>
-            </div>
-        </div>
-        <!-- Page Content -->
-        <div class="main" id="main-div" style="list-style: none; text-align: center;">
-            <!-- PUT REPORT CONTENT HERE -->
+{% extends "Common.html" %}
+{% block title %}Report{% endblock %}
+{% block html_head %}
+{% endblock %}
+{% block content %}
+    <div style="height: 115%; list-style: none; text-align: center;">
+        <!-- PUT REPORT CONTENT HERE -->
             <h1 style="text-decoration: underline;">Expectations</h1><br>
             <div >
                 <h2>Style</h2>
@@ -191,15 +164,12 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <!-- Header -->
-        <header id="header">
-            <!-- Nav Button -->
-            <span class="navButton" id="navBarButton" onclick="toggleNavBar()">&#9776;</span>
-            
-            <div class="overlay" id="headerOverlay" >
-                <h1 style="font-size: 60px;" id="headerTitle">Report</h1>
-            </div>
-        </header>
-    </body>
-</html>
+            <br>
+            <br>
+    </div>
+{% endblock %}
+{% block navOverlay %}
+     <div class="overlay" id="headerOverlay" style="height: 75px;">
+         <h1 id="headerTitle" style="font-size: 57px;">Project Report</h1>
+     </div>
+{% endblock %}

@@ -73,6 +73,8 @@ def reviews():
     rows = getReviews(con, c)
 
     return render_template("reviews.html", rows=rows)
+
+
 @app.route('/submitReview', methods=['POST'])
 def submitReview():
     review = request.form.get('review')
@@ -378,11 +380,12 @@ def popDatabase():
                             Question = get_value(item)
                         elif 'Answer' in item:
                             Answer = get_value(item)
-                c.execute("""INSERT INTO QA (name, question, answer) VALUES (?, ?, ?)""", (Name, Question, Answer))
                 print("Added review from {}".format(Name))
             except Exception as e:
                 print(e)
                 print("{} Not added to database ".format(x))
+
+        c.execute("""INSERT INTO Login (email, password) VALUES ( ?, ?)""", ("AndisCritters@gmail.com", "AndisCritters123"))
         con.commit()
     except Exception as e:
         print(e)
